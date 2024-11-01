@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="screen">
+                <input type="text" id="screen" readonly>
+            </div>
+            <div class="button">
+                <table>
+                    <tr>
+                        <th><button onclick="clearAll('c')">C</th>
+                        <th><button onclick="choose('-')">+/_</th>
+                        <th><button onclick="choose('%')">%</th>
+                        <th><button id="operator" onclick="choose('/')">:</th>
+                    </tr>
+
+                    <tr>
+                        <th><button onclick="choose('7')">7</th>
+                        <th><button onclick="choose('8')">8</th>
+                        <th><button onclick="choose('9')">9</th>
+                        <th><button id="operator" onclick="choose('*')">x</th>
+                    </tr>
+
+                    <tr>
+                        <th><button onclick="choose('4')">4</th>
+                        <th><button onclick="choose('5')">5</th>
+                        <th><button onclick="choose('6')">6</th>
+                        <th><button id="operator" onclick="choose('-')">-</th>
+                    </tr>
+
+                    <tr>
+                        <th><button onclick="choose('1')">1</th>
+                        <th><button onclick="choose('2')">2</th>
+                        <th><button onclick="choose('3')">3</th>
+                        <th><button id="operator" onclick="choose('+')">+</th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="2"><button id="so0" onclick="choose('0')">0</th>
+                        <th><button onclick="choose(',')">.</th>
+                        <th><button id="operator" onclick="show('=')">=</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        var input = document.getElementById("screen")
+        function clearAll(giatri){
+            input.value = ""
+        }
+
+
+        function choose(value){
+            input.value += value
+        }
+
+        function show(){
+            try{
+                input.value = eval(input.value)
+            }
+            catch {
+                input.value = "Error"
+            }
+        }
+        
+    </script>
+</body>
+</html>
